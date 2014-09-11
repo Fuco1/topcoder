@@ -39,6 +39,7 @@ class Node {
     int value;
     Node left;
     Node right;
+    Node parent;
 
     Node(int value, Node left, Node right) {
         this.value = value;
@@ -113,6 +114,17 @@ class Node {
             }
         }
         return null;
+    }
+
+    public Node next() {
+        if (right != null) {
+            Node c = right;
+            while (c.left != null) c = c.left;
+            return c;
+        }
+        Node n = this;
+        while (n.parent != null && n.parent.value < n.value) n = n.parent;
+        return n.parent;
     }
 
     public static BSTInfo maxBST(Node n) {

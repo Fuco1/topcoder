@@ -80,4 +80,32 @@ public class BinarySearchTreeTest {
         root = new Node(11, new Node(9, new Node(5, new Node(4), new Node(3, new Node(6), new Node(8))), new Node(10)), new Node(12));
         assertEquals(false, Node.isBST(root));
     }
+
+    @Test
+    public void testNext() throws Exception {
+        Node n1 = new Node(1);
+        Node n6 = new Node(6);
+        Node n8 = new Node(8);
+        Node n12 = new Node(12);
+        Node n18 = new Node(18);
+        Node n7 = new Node(7,n6,n8);
+        Node n3 = new Node(3,n1,n7);
+        Node n10 = new Node(10,n3,n12);
+        Node root = new Node(15,n10,n18);
+        n1.parent = n3;
+        n6.parent = n7;
+        n8.parent = n7;
+        n12.parent = n10;
+        n18.parent = root;
+        n7.parent = n3;
+        n3.parent = n10;
+        n10.parent = root;
+        System.out.println(root);
+        Node n = n1;
+        while (n.next() != null) {
+            System.out.print(n.value + " ");
+            n = n.next();
+        }
+    }
+
 }
