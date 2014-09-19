@@ -43,7 +43,7 @@ public class PotsOfGold {
         System.out.println(sum);
     }
 
-        private static void printTable(int[][] table) {
+    private static void printTable(int[][] table) {
         for (int j = 0; j < table.length; j++) {
             for (int i = 0; i < table[0].length; i++) {
                 System.out.format("%5d",table[j][i]);
