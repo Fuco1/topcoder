@@ -1,3 +1,5 @@
 *.class
 */target/*
 tree-to-list.out
+*/bin/*
+*/obj/*
